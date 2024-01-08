@@ -19,6 +19,43 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Lista de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,6 +65,9 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <tr>
         <th>ID</th>
         <th>Nombre de Usuario</th>
+        <th>Email</th>
+        <th>Edad</th>
+        <th>Dirección</th>
         <th>Acciones</th>
     </tr>
 
@@ -35,6 +75,11 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <tr>
             <td><?= $usuario['id'] ?></td>
             <td><?= $usuario['username'] ?></td>
+            <td><?= $usuario['email'] ?></td>
+            <td><?= $usuario['edad'] ?></td>
+            <td><?= $usuario['direccion'] ?></td>
+
+
             <td>
                 <!-- Enlace para eliminar -->
                 <a href="delete.php?id=<?= $usuario['id'] ?>" onclick="return confirm('¿Estás seguro?')">Eliminar</a>
@@ -47,7 +92,7 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Enlace para crear un nuevo usuario -->
 <h2>Crear Nuevo Usuario</h2>
-<a href="create.php">Crear Usuario</a>
+<a href="create.php">Crear Usuario</a><hr>
 <!-- Enlace para cerrar sesión -->
 <a href="logout.php">Cerrar Sesión</a>
 </body>

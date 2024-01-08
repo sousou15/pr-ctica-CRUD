@@ -22,7 +22,6 @@
         <p>¿No tienes una cuenta? <a href="register.php">Regístrate aquí</a>.</p>
     </div>
 
-    </div>
     <script>
         // JavaScript para mostrar mensaje de error en el cuadro de login
         const urlParams = new URLSearchParams(window.location.search);
@@ -61,8 +60,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Verifica si se encontraron resultados
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Verifica la contraseña
-            if ($contraseña === $row['password']) {
+            // Verifica la contraseña usando password_verify
+            if (password_verify($contraseña, $row['password'])) {
                 // Si las credenciales son correctas, establece una cookie para mantener la sesión
                 setcookie('nombre_usuario', $usuario, time() + 3600, '/');
                 $_SESSION['id'] = $row['id'];
