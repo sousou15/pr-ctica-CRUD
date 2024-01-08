@@ -67,14 +67,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url("imagen1.jpg");
             margin: 20px;
         }
 
         h1 {
             color: #333;
+            font-size: 40px;
         }
 
+        p{
+            text-align: center;
+            background-color: whitesmoke;
+            border-radius: 10px;
+        }
         form {
             max-width: 400px;
             margin: 20px auto;
@@ -106,12 +112,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #0056b3;
         }
 
-        p {
-            margin-top: 10px;
-            text-align: center;
-        }
-
         a {
+            display: inline-block;
+            margin-top: 10px;
             color: #007bff;
             text-decoration: none;
         }
@@ -119,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         a:hover {
             text-decoration: underline;
         }
-    </style>
+    </style>   
 </head>
 <body>
     <h1>Registro</h1>

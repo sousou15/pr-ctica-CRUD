@@ -4,12 +4,20 @@ require_once('db.php');
 // Verificar si se envió el formulario de actualización
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['id'])) {
     $id = $_POST['id'];
-    $newUsername = $_POST['new_username']; // Nuevo nombre de usuario
+    $newUsername = $_POST['new_username'];
+    $newPassword = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
+    $newEmail = $_POST['new_email'];
+    $newEdad = $_POST['new_edad']; // Nuevo campo de edad
+    $newDireccion = $_POST['new_direccion'];
 
     try {
-        // Actualizar el nombre de usuario en la base de datos
-        $stmt = $conn->prepare("UPDATE usuarios SET username = :new_username WHERE id = :id");
+        // Actualizar la información del usuario en la base de datos
+        $stmt = $conn->prepare("UPDATE usuarios SET username = :new_username, password = :new_password, email = :new_email, edad = :new_edad, direccion = :new_direccion WHERE id = :id");
         $stmt->bindParam(':new_username', $newUsername);
+        $stmt->bindParam(':new_password', $newPassword);
+        $stmt->bindParam(':new_email', $newEmail);
+        $stmt->bindParam(':new_edad', $newEdad);
+        $stmt->bindParam(':new_direccion', $newDireccion);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
@@ -41,6 +49,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <title>Actualizar Usuario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,6 +112,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
     <label for="new_username">Nuevo Nombre de Usuario:</label>
     <input type="text" name="new_username" value="<?= $usuario['username'] ?>" required>
+    <label for="new_password">Nueva Contraseña:</label>
+    <input type="text" name="new_password" value="<?= $usuario['password'] ?>" required>
+    <label for="new_email">Nuevo Email:</label>
+    <input type="text" name="new_email" value="<?= $usuario['email'] ?>" required>
+    <label for="new_edad">Nueva Edad:</label>
+    <input type="text" name="new_edad" value="<?= $usuario['edad'] ?>" required>
+    <label for="new_direccion">Nueva Dirección:</label>
+    <input type="text" name="new_direccion" value="<?= $usuario['direccion'] ?>" required>
     <br>
     <input type="submit" value="Actualizar Usuario">
 </form>

@@ -35,12 +35,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url("imagen1.jpg");
             margin: 20px;
         }
 
-        h1 {
+        h2 {
             color: #333;
+            font-size: 40px;
         }
 
         form {

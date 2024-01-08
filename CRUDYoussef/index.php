@@ -22,18 +22,20 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-image: url("imagen1.jpg");
             margin: 20px;
         }
 
         h2 {
             color: #333;
+            font-size: 40px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            background-color: whitesmoke;
         }
 
         th, td {
@@ -50,10 +52,14 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
             text-decoration: none;
             color: #007bff;
             margin-right: 10px;
+            border: solid 1px #007bff;
+            background-color: whitesmoke;
+            border-radius: 10px;
         }
 
         a:hover {
-            text-decoration: underline;
+            color: whitesmoke;
+            background-color: #007bff;
         }
     </style>
 </head>

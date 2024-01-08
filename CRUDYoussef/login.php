@@ -9,7 +9,7 @@
     <div class="cuadro">
         <h1>LOGIN</h1>
 
-        <img src="./c3af06866d3f174fe9ce1172ab80deea-removebg-preview.png">
+        <img src="imagen2.png">
         <form action="Login.php" method="post">
             <label for="Usuario">Usuario:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp  </label>
             <input type="text" id="username" name="username" placeholder="Nombre de usuario..." /><br><br>
