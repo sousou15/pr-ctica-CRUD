@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Free';
+    src: url('fonts/Freedom45.ttf') format('truetype'),
+}
+@font-face {
+    font-family: 'Coffee';
+    src: url('fonts/CoffeeButter-ZVdnx.ttf') format('truetype'),
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url(./0ae55597547e782ec26863048559e796.jpg);
+}
+
+h1{
+    margin-bottom: 50px;
+    font-family: Free;
+}
+.cuadro {
+    text-align: center;
+    border: solid black 2px;
+    padding: 5%;
+    border-radius: 15px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.formulario {
+    text-align: center;
+}
+
+img{
+    height: 250px;
+    width: 250px;
+}
+
+label {
+    margin: 10px 0;
+    font-family: Coffee;
+
+
+}
+
+.botonconectar {
+    transition: all 1s;
+    margin-top: 10px;
+    font-family: Free;
+
+}
+.botonconectar:hover{
+    transform: scale(1.5);
+    color: brown;
+    background-color: antiquewhite;
+}
+
+input{
+    border-radius: 10px;
+}
